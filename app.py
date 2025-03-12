@@ -21,7 +21,7 @@ def calculate_score(surgery_abdominal, antibiotic_therapy, candiduria, cirrhosis
     return score
 
 # Title and subtitle without logo
-st.set_page_config(page_title="CandID Rule", page_icon="🦠", layout="centered")
+st.set_page_config(page_title="CandID Rule", page_icon="🍄", layout="centered")
 
 # Set light blue background
 st.markdown(
