@@ -65,6 +65,7 @@ st.markdown(
         font-family: Arial;
         color: white;
         font-size: 12px;
+        margin-top: 10px;
     }
     </style>
     """, 
@@ -147,18 +148,19 @@ with tab3:
     st.markdown(
         """
         <div style="margin-top: 10px;" class="authors">
-        Authors:
-        
-        Diego Ulises Vázquez Omaña, MD<br>
-        Paula Beltran Reyes, MD<br>
-        Jorge Eduardo AlonsoMontoya, MD<br>
-        Nayeli Esmeralda Avalos Celis, MD<br>
-        Sandra Rajme Lopez, MSc, MD<br>
-        Karla M. Tamez Torres, MSc, MD<br>
-        Bernardo Martínez Guerra, MSc, MD<br>
-        Carla M. Román Montes, MSc, MD<br>
-        Alfredo Ponce De León, MSc, MD<br>
-        María Fernanda González Lara, MSc, MD
+        <p>Authors:</p>
+        <ul>
+            <li>Diego Ulises Vázquez Omaña, MD</li>
+            <li>Paula Beltran Reyes, MD</li>
+            <li>Jorge Eduardo AlonsoMontoya, MD</li>
+            <li>Nayeli Esmeralda Avalos Celis, MD</li>
+            <li>Sandra Rajme Lopez, MSc, MD</li>
+            <li>Karla M. Tamez Torres, MSc, MD</li>
+            <li>Bernardo Martínez Guerra, MSc, MD</li>
+            <li>Carla M. Román Montes, MSc, MD</li>
+            <li>Alfredo Ponce De León, MSc, MD</li>
+            <li>María Fernanda González Lara, MSc, MD</li>
+        </ul>
         </div>
         """, 
         unsafe_allow_html=True
