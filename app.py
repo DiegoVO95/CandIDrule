@@ -23,47 +23,44 @@ def calculate_score(surgery_abdominal, antibiotic_therapy, candiduria, cirrhosis
 # Title and subtitle without logo
 st.set_page_config(page_title="CandID Rule", page_icon="🍄", layout="centered")
 
-# Set light blue background
+# CSS for dynamic color mode
 st.markdown(
     """
     <style>
-    .reportview-container {
-        background-color: #ADD8E6;
+    :root {
+        --background-light: white;
+        --background-dark: black;
+        --text-light: black;
+        --text-dark: white;
+        --high-risk: #FF6347;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: var(--background-dark) !important;
+            color: var(--text-dark) !important;
+        }
+        .low-risk {
+            color: var(--text-dark) !important;
+        }
+    }
+
+    body {
+        background-color: var(--background-light);
+        color: var(--text-light);
         font-family: Arial;
     }
 
-    /* Customizing the color of the selected tab */
-    .css-1v3fvcr {
-        background-color: #ADD8E6 !important;
-        color: white !important;
-    }
-    .css-1v3fvcr:hover {
-        background-color: #ADD8E6 !important;
-        color: white !important;
-    }
-    
-    /* Tab selected color fix */
-    .stTabs .css-1v3fvcr.stTabActive {
-        background-color: #ADD8E6 !important;
-        color: white !important;
-    }
-    
-    /* Title and subtitle styles */
-    .title {
-        font-family: Arial;
-        color: white;
-        font-size: 36px;
-    }
-    .subtitle {
-        font-family: Arial;
-        color: white;
-        font-size: 18px;
+    .high-risk {
+        color: var(--high-risk);
     }
 
-    /* Authors' names styling */
+    .low-risk {
+        color: var(--text-light);
+    }
+
     .authors {
         font-family: Arial;
-        color: white;
         font-size: 12px;
         margin-top: 10px;
     }
@@ -90,10 +87,9 @@ with tab1:
         unsafe_allow_html=True
     )
     
-    # Add a space between instructions and factors
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)  # Space between instructions and factors
 
-    # Input variables with checkboxes, sorted alphabetically
+    # Input variables with checkboxes
     surgery_abdominal = st.checkbox('Abdominal surgery')
     antibiotic_therapy = st.checkbox('Antibiotic therapy')
     candiduria = st.checkbox('Candiduria')
@@ -105,17 +101,16 @@ with tab1:
     if st.button('Calculate Score'):
         score = calculate_score(surgery_abdominal, antibiotic_therapy, candiduria, cirrhosis, cvc, solid_cancer)
         
-        # Display calculated score
-        if score >= 1.23:
-            st.markdown(f'<h3 style="color: #FF6347; font-family: Arial;">Total score: {score:.2f} - Elevated risk of candidemia. Complement with other microbiological studies.</h3>', unsafe_allow_html=True)
+        if score >= 1.92:
+            st.markdown(f'<h3 class="high-risk">Total score: {score:.2f} - Elevated risk of candidemia. Complement with other microbiological studies.</h3>', unsafe_allow_html=True)
         else:
-            st.markdown(f'<h3 style="color: white; font-family: Arial;">Total score: {score:.2f} - Low risk for candidemia.</h3>', unsafe_allow_html=True)
-        
-        # Sensitivity, specificity, predictive values
+            st.markdown(f'<h3 class="low-risk">Total score: {score:.2f} - Low risk for candidemia.</h3>', unsafe_allow_html=True)
+
+        # Updated Sensitivity, Specificity, Predictive Values
         st.markdown(
             """
             <div style="background-color: #003366; padding: 10px; color: white; font-size: 12px; font-family: Arial;">
-            Sensitivity: 91%, Specificity: 50%, Positive Predictive Value: 47%, Negative Predictive Value: 92%.
+            Sensitivity: 80%, Specificity: 63%, Positive Predictive Value: 52%, Negative Predictive Value: 86%.
             </div>
             """, 
             unsafe_allow_html=True
@@ -132,13 +127,12 @@ with tab2:
     5. **Central Venous Catheter (CVC)**: Indicate if the patient has a central venous catheter in place for more than or equal to 72 hours.
     6. **Solid Cancer**: Indicate if the patient has a diagnosis of solid cancer, regardless of whether they have received chemotherapy or not.
     
-    After selecting the appropriate options, click the "Calculate Score" button. The result will be a total score that indicates the risk of candidemia. If the score is equal to or greater than 1.23, the patient is considered to be at elevated risk, and other microbiological studies should be conducted.
+    After selecting the appropriate options, click the "Calculate Score" button. The result will be a total score that indicates the risk of candidemia. If the score is equal to or greater than 1.92, the patient is considered to be at elevated risk, and other microbiological studies should be conducted.
     """)
 
 # Tab 3: Terms and Conditions
 with tab3:
     st.header("Terms and Conditions")
-
     st.write("""
     1. The CandID Rule is intended to be used only by healthcare professionals. This tool does not provide medical recommendations.
     2. The calculator is still under prospective validation and was developed at the Instituto Nacional de Ciencias Médicas y Nutrición Salvador Zubirán (INCMNSZ).
