@@ -127,12 +127,9 @@ const CandidCalculator = () => {
               <div className="flex-1">
                 <label
                   htmlFor={factor.id}
-                  className="text-white font-medium cursor-pointer flex items-center gap-2"
+                  className="text-white font-medium cursor-pointer"
                 >
                   {factor.label}
-                  <Badge variant="outline" className="text-xs">
-                    +{factor.score}
-                  </Badge>
                 </label>
                 <p className="text-gray-400 text-sm mt-1">{factor.description}</p>
               </div>
