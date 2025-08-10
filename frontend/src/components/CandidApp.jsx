@@ -21,7 +21,7 @@ const CandidApp = () => {
             </h1>
           </div>
           <p className="text-gray-400 text-lg">
-            Candidemia Risk Prediction Calculator for Healthcare Professionals at INCMNSZ
+            Candidemia Risk Prediction Calculator for Healthcare Professionals (INCMNSZ)
           </p>
         </div>
 
