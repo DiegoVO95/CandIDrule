@@ -39,7 +39,7 @@ const CandidCalculator = () => {
     },
     {
       id: 'cirrhosis',
-      label: 'Hepatic Cirrhosis',
+      label: 'Cirrhosis',
       description: 'Cirrhosis, regardless of stage or etiology',
       score: 1.11,
     },
