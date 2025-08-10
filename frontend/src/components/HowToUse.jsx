@@ -65,7 +65,9 @@ const HowToUse = () => {
                 className="p-4 rounded-lg bg-gray-700/50 hover:bg-gray-700 transition-colors"
               >
                 <div className="flex items-start gap-3">
-                  <div className="text-2xl">{instruction.icon}</div>
+                  <div className="text-blue-400 mt-1">
+                    <instruction.icon className="w-6 h-6" />
+                  </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
                       <h3 className="text-white font-semibold">{instruction.title}</h3>
