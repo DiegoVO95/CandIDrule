@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
-import { Info, Stethoscope, Calculator, AlertTriangle } from 'lucide-react';
+import { Info, Calculator, AlertTriangle, Scissors, Pill, Zap, CircleDot, Droplets, Bug } from 'lucide-react';
 
 const HowToUse = () => {
   const instructions = [
@@ -9,37 +9,37 @@ const HowToUse = () => {
       title: 'Abdominal Surgery',
       description: 'Indicate if the patient has had recent abdominal surgery in less than 1 month.',
       score: 1.11,
-      icon: '🏥',
+      icon: Scissors,
     },
     {
       title: 'Antibiotic Therapy',
       description: 'Indicate if the patient received antibiotic therapy in the first 3 days of their hospital admission.',
       score: 0.82,
-      icon: '💊',
+      icon: Pill,
     },
     {
       title: 'Candiduria',
       description: 'Indicate if there is the presence of candiduria within the last week before the suspicion of candidemia.',
       score: 0.41,
-      icon: '🧪',
+      icon: Zap,
     },
     {
       title: 'Cirrhosis',
       description: 'Indicate if the patient has cirrhosis, regardless of stage or etiology.',
       score: 1.11,
-      icon: '🫀',
+      icon: CircleDot,
     },
     {
       title: 'Central Venous Catheter (CVC)',
       description: 'Indicate if the patient has a central venous catheter in place for more than or equal to 72 hours.',
       score: 1.50,
-      icon: '🩺',
+      icon: Droplets,
     },
     {
       title: 'Solid Cancer',
       description: 'Indicate if the patient has a diagnosis of solid cancer, regardless of whether they have received chemotherapy or not.',
       score: 1.17,
-      icon: '🎗️',
+      icon: Bug,
     },
   ];
 
